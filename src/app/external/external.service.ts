@@ -10,15 +10,15 @@ export class ExternalService {
 
   constructor(
     private readonly httpService: HttpService
-  ) {}
+  ) { }
 
 
   async sendEmail(data: SendEmailInterface): Promise<boolean> {
     const url = this.EXTERNAL_API_URL
     const config = {
-      headers: {  Authorization: this.EXTERNAL_API_KEY } 
+      headers: { Authorization: this.EXTERNAL_API_KEY }
     }
-    const response = await lastValueFrom(this.httpService.post(url, data, config ))
+    const response = await lastValueFrom(this.httpService.post(url, data, config))
     return response.status == 202
   }
 
